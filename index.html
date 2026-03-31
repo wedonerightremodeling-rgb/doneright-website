@@ -71,7 +71,7 @@
     /* ABOUT */
     #about { background: var(--grey); display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
     .about-img-wrap { position: relative; }
-    .about-img-wrap img { width: 45%; margin: 0 auto; display: block; aspect-ratio: 4/5; object-fit: cover; max-height: 260px; position: relative; z-index: 1; }
+    .about-img-wrap img { width: 50%; margin: 0 auto; display: block; aspect-ratio: 4/5; object-fit: cover; max-height: 300px; position: relative; z-index: 1; }
     .about-img-wrap::before { content: ''; position: absolute; top: -16px; left: -16px; right: 16px; bottom: 16px; border: 2px solid var(--accent); z-index: 0; }
     .about-badge { position: absolute; bottom: 1rem; right: 1rem; background: rgba(13,17,23,0.92); border: 2px solid var(--accent); padding: 1rem 1.5rem; text-align: center; z-index: 2; border-radius: 4px; }
     .about-badge .big { font-family: 'Bebas Neue', sans-serif; font-size: 2.8rem; color: var(--accent2); line-height: 1; display: block; }
@@ -434,7 +434,7 @@
   <div class="contact-grid">
     <div class="contact-info">
       <div class="c-item"><h4>Phone</h4><a href="tel:4047403421">(404) 740-3421</a></div>
-      <div class="c-item"><h4>Email</h4><p style="color:#fff;font-size:1rem;font-weight:300;">wedonerightremodeling@gmail.com</p></div>
+      <div class="c-item"><h4>Email</h4><p style="color:#fff;font-size:1rem;font-weight:300;"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="e39486878c8d86918a848b9791868e8c87868f8a8d84a3848e828a8fcd808c8e">[email&#160;protected]</a></p></div>
       <div class="c-item"><h4>Service Area</h4><p>Atlanta, Marietta, Kennesaw, Woodstock, Canton &amp; surrounding areas</p></div>
       <div class="c-item"><h4>Hours</h4><p>Monday – Saturday: 7:00 AM – 7:00 PM</p></div>
     <div class="c-item"><h4>Follow Us</h4><a href="https://www.facebook.com/profile.php?id=61577505273785" target="_blank" style="display:inline-flex;align-items:center;gap:0.5rem;background:#1877f2;color:#fff;font-family:Barlow Condensed,sans-serif;font-size:0.8rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:1rem 2.5rem;text-decoration:none;border-radius:3px;margin-top:0.3rem;font-size:1rem;">&#9654; Visit Our Facebook Page</a></div>
@@ -532,7 +532,7 @@
   </div>
 </section>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
 
 <footer>
   <div class="footer-logo"><span class="ac">DONE</span> BETTER REMODELING LLC</div>
@@ -582,6 +582,17 @@
 </div>
 
 <script>
+// Lightbox function - defined first so openModal can use it
+function showLB(src) {
+  var lb = document.getElementById('lb');
+  var lbImg = document.getElementById('lbImg');
+  if (lb && lbImg) {
+    lbImg.src = src;
+    lb.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+  }
+}
+
 var SVC={
   kitchen:{num:"01",title:"Premium Kitchen Renovations",photos:["ph_kitchen1","ph_kitchen2","ph_kitchen3","ph_kitchen4"],details:["Custom cabinetry design and installation","Granite, quartz and marble countertops","Tile backsplashes and flooring","Kitchen island additions","Under-cabinet lighting","Appliance installation and plumbing","Full gut and rebuild or partial refresh"],note:"Whether you want a full kitchen gut or a modern refresh, we handle everything from design to final walkthrough."},
   bathroom:{num:"02",title:"Master Bathroom Remodeling",photos:["ph_bath1","ph_bath2","ph_bath3"],details:["Custom walk-in shower builds","Freestanding and soaking tub installs","Floor-to-ceiling tile work","Double vanity installations","Heated flooring options","Frameless glass enclosures","Full plumbing and fixture upgrades"],note:"We turn ordinary bathrooms into spa-level retreats built to your style, your budget, and your timeline."},
@@ -679,14 +690,4 @@ document.addEventListener('keydown', function(e) {
   }
 });
 
-// ===== PHOTO CLICK IN POPUPS =====
-document.addEventListener('click', function(e) {
-  var t = e.target;
-  if (t && t.tagName === 'IMG' && t.classList.contains('popup-photo')) {
-    e.stopPropagation();
-    showLB(t.src);
-  }
-});
-</script>
-</body>
-</html>
+// ===== PHOTO
