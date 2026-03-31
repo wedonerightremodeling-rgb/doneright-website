@@ -71,7 +71,7 @@
     /* ABOUT */
     #about { background: var(--grey); display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
     .about-img-wrap { position: relative; }
-    .about-img-wrap img { width: 50%; margin: 0 auto; display: block; aspect-ratio: 4/5; object-fit: cover; max-height: 300px; position: relative; z-index: 1; }
+    .about-img-wrap img { width: 100%; display: block; aspect-ratio: 16/9; object-fit: cover; max-height: 280px; position: relative; z-index: 1; }
     .about-img-wrap::before { content: ''; position: absolute; top: -16px; left: -16px; right: 16px; bottom: 16px; border: 2px solid var(--accent); z-index: 0; }
     .about-badge { position: absolute; bottom: 1rem; right: 1rem; background: rgba(13,17,23,0.92); border: 2px solid var(--accent); padding: 1rem 1.5rem; text-align: center; z-index: 2; border-radius: 4px; }
     .about-badge .big { font-family: 'Bebas Neue', sans-serif; font-size: 2.8rem; color: var(--accent2); line-height: 1; display: block; }
@@ -230,7 +230,7 @@
 
   /* About */
   #about { grid-template-columns: 1fr !important; gap: 2rem !important; padding: 3rem 1.5rem !important; }
-  .about-img-wrap { height: 280px !important; }
+  .about-img-wrap { height: auto !important; }
   .about-img-wrap::before { display: none !important; }
   .about-content { padding: 0 !important; }
   .about-content p { font-size: 0.9rem !important; }
@@ -331,28 +331,28 @@
     <div class="service-card" onclick="openModal('kitchen')" style="cursor:pointer;">
       <div class="service-num">01</div><div class="service-name">Premium Kitchen Renovations</div>
       <p class="service-desc">Custom cabinetry, countertops, backsplashes, islands, and full kitchen overhauls that blend style with function.</p>
-      <span style="display:inline-block;margin-top:1rem;font-family:Barlow Condensed,sans-serif;font-size:0.8rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#6aaee8;border-bottom:1px solid #4a90d9;">Learn More →</span>
+      <span style="display:inline-block;margin-top:1.2rem;font-family:Barlow Condensed,sans-serif;font-size:1rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#6aaee8;border-bottom:2px solid #4a90d9;padding-bottom:3px;">Learn More →</span>
     </div>
     <div class="service-card" onclick="openModal('bathroom')" style="cursor:pointer;">
       <div class="service-num">02</div><div class="service-name">Master Bathroom Remodeling</div>
       <p class="service-desc">Walk-in showers, soaking tubs, tile work, vanities, and spa-level finishes that make your bathroom a true retreat.</p>
-      <span style="display:inline-block;margin-top:1rem;font-family:Barlow Condensed,sans-serif;font-size:0.8rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#6aaee8;border-bottom:1px solid #4a90d9;">Learn More →</span>
+      <span style="display:inline-block;margin-top:1.2rem;font-family:Barlow Condensed,sans-serif;font-size:1rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#6aaee8;border-bottom:2px solid #4a90d9;padding-bottom:3px;">Learn More →</span>
     </div>
     <div class="service-card" onclick="openModal('fullhome')" style="cursor:pointer;">
       <div class="service-num">03</div><div class="service-name">Full Home Transformations</div>
       <p class="service-desc">Whole-home renovations including open floor plans, room additions, and complete interior redesigns.</p>
-      <span style="display:inline-block;margin-top:1rem;font-family:Barlow Condensed,sans-serif;font-size:0.8rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#6aaee8;border-bottom:1px solid #4a90d9;">Learn More →</span>
+      <span style="display:inline-block;margin-top:1.2rem;font-family:Barlow Condensed,sans-serif;font-size:1rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#6aaee8;border-bottom:2px solid #4a90d9;padding-bottom:3px;">Learn More →</span>
     </div>
     </div>
     <div class="service-card" onclick="openModal('millwork')" style="cursor:pointer;">
       <div class="service-num">04</div><div class="service-name">Interior Painting &amp; Millwork</div>
       <p class="service-desc">Built-ins, crown molding, trim work, custom shelving, and accent walls crafted to elevate every room.</p>
-      <span style="display:inline-block;margin-top:1rem;font-family:Barlow Condensed,sans-serif;font-size:0.8rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#6aaee8;border-bottom:1px solid #4a90d9;">Learn More →</span>
+      <span style="display:inline-block;margin-top:1.2rem;font-family:Barlow Condensed,sans-serif;font-size:1rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#6aaee8;border-bottom:2px solid #4a90d9;padding-bottom:3px;">Learn More →</span>
     </div>
     <div class="service-card" onclick="openModal('exterior')" style="cursor:pointer;">
       <div class="service-num">05</div><div class="service-name">Exterior Modernization</div>
       <p class="service-desc">Siding, painting, decks, patios, and curb appeal upgrades that make your home stand out on the block.</p>
-      <span style="display:inline-block;margin-top:1rem;font-family:Barlow Condensed,sans-serif;font-size:0.8rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#6aaee8;border-bottom:1px solid #4a90d9;">Learn More →</span>
+      <span style="display:inline-block;margin-top:1.2rem;font-family:Barlow Condensed,sans-serif;font-size:1rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#6aaee8;border-bottom:2px solid #4a90d9;padding-bottom:3px;">Learn More →</span>
     </div>
   </div>
 </section>
