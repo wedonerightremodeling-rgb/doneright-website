@@ -434,7 +434,7 @@
   <div class="contact-grid">
     <div class="contact-info">
       <div class="c-item"><h4>Phone</h4><a href="tel:4047403421">(404) 740-3421</a></div>
-      <div class="c-item"><h4>Email</h4><a href="mailto:wedonerightremodeling@gmail.com" style="word-break:break-all;">wedonerightremodeling@gmail.com</a></div>
+      <div class="c-item"><h4>Email</h4><a href="/cdn-cgi/l/email-protection#3d4a58595253584f545a55494f58505259585154535a7d5a505c5451135e5250" style="word-break:break-all;"><span class="__cf_email__" data-cfemail="a6d1c3c2c9c8c3d4cfc1ced2d4c3cbc9c2c3cacfc8c1e6c1cbc7cfca88c5c9cb">[email&#160;protected]</span></a></div>
       <div class="c-item"><h4>Service Area</h4><p>Atlanta, Marietta, Kennesaw, Woodstock, Canton &amp; surrounding areas</p></div>
       <div class="c-item"><h4>Hours</h4><p>Monday – Saturday: 7:00 AM – 7:00 PM</p></div>
     <div class="c-item"><h4>Follow Us</h4><a href="https://www.facebook.com/profile.php?id=61577505273785" target="_blank" style="display:inline-flex;align-items:center;gap:0.5rem;background:#1877f2;color:#fff;font-family:Barlow Condensed,sans-serif;font-size:0.8rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:1rem 2.5rem;text-decoration:none;border-radius:3px;margin-top:0.3rem;font-size:1rem;">&#9654; Visit Our Facebook Page</a></div>
@@ -532,7 +532,7 @@
   </div>
 </section>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
 
 <footer>
   <div class="footer-logo"><span class="ac">DONE</span> BETTER REMODELING LLC</div>
@@ -605,13 +605,11 @@ function openModal(k){
   document.getElementById("svcModal").style.display="flex";
   // Attach click handlers to photos after they are rendered
   setTimeout(function(){
-    var photos = document.querySelectorAll('.popup-photo');
-    photos.forEach(function(img){
+    document.querySelectorAll('.popup-photo').forEach(function(img){
       img.style.cursor = 'zoom-in';
       img.onclick = function(e){
         e.stopPropagation();
-        document.getElementById('lightboxImg').src = this.src;
-        document.getElementById('lightbox').style.display = 'flex';
+        showLB(this.src);
       };
     });
   }, 200);
@@ -619,13 +617,10 @@ function openModal(k){
 document.addEventListener("keydown",function(e){
   if(e.key==="Escape"){
     document.getElementById("svcModal").style.display="none";
-    document.getElementById("lightbox").style.display="none";
+    document.getElementById("lb").style.display="none";
   }
 });
-function openLightbox(src){
-  document.getElementById("lightboxImg").src=src;
-  document.getElementById("lightbox").style.display="flex";
-}
+
 
 // Slider
 (function(){
@@ -644,6 +639,54 @@ var form=document.getElementById("contactForm");
 if(form){form.addEventListener("submit",async function(e){e.preventDefault();var btn=form.querySelector(".submit-btn");btn.textContent="Sending...";btn.disabled=true;var data=new FormData(form);try{var res=await fetch("https://formspree.io/f/mykbkwwl",{method:"POST",body:data,headers:{"Accept":"application/json"}});if(res.ok){btn.textContent="Message Sent!";btn.style.background="#2ecc71";form.reset();setTimeout(function(){btn.textContent="Send Message";btn.style.background="";btn.disabled=false;},4000);}else{btn.textContent="Error - Try Again";btn.style.background="#e74c3c";btn.disabled=false;}}catch(err){btn.textContent="Error - Try Again";btn.style.background="#e74c3c";btn.disabled=false;}});}
 </script>
 
-<!-- Lightbox -->
-<div id="lightbox" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.95);z-index:99999;align-items:center;justify-content:center;cursor:zoom-out;" onclick="if(event.target===this||event.target.tagName==='BUTTON')this.style.display='none'">
-  <button onclick="document.getElementById('lightbox').style.display='none'" style="position:absolute;top:1rem;right:
+<!-- LIGHTBOX -->
+<div id="lb" style="display:none;position:fixed;inset:0;z-index:99999;background:rgba(0,0,0,0.95);">
+  <button id="lbClose" style="position:absolute;top:1rem;right:1.5rem;background:none;border:none;color:#fff;font-size:2.5rem;cursor:pointer;z-index:2;line-height:1;">&#x2715;</button>
+  <img id="lbImg" src="" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);max-width:92vw;max-height:92vh;object-fit:contain;"/>
+</div>
+
+<script>
+// ===== CLEAN LIGHTBOX =====
+var lb = document.getElementById('lb');
+var lbImg = document.getElementById('lbImg');
+var lbClose = document.getElementById('lbClose');
+
+function showLB(src) {
+  lbImg.src = src;
+  lb.style.display = 'block';
+  document.body.style.overflow = 'hidden';
+}
+
+lbClose.onclick = function() {
+  lb.style.display = 'none';
+  document.body.style.overflow = '';
+  lbImg.src = '';
+};
+
+lb.onclick = function(e) {
+  if (e.target === lb) {
+    lb.style.display = 'none';
+    document.body.style.overflow = '';
+    lbImg.src = '';
+  }
+};
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    lb.style.display = 'none';
+    document.body.style.overflow = '';
+    lbImg.src = '';
+  }
+});
+
+// ===== PHOTO CLICK IN POPUPS =====
+document.addEventListener('click', function(e) {
+  var t = e.target;
+  if (t && t.tagName === 'IMG' && t.classList.contains('popup-photo')) {
+    e.stopPropagation();
+    showLB(t.src);
+  }
+});
+</script>
+</body>
+</html>
